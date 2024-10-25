@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        .card {
+            width: 837px;
+            height: 1280px;
+            border: 1px solid lightgray;
+            border-radius: 70px;
+            box-shadow: 5px 5px 15px black;
+            margin-top: 20px;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .tri1 {
+            width: 0;
+            height: 0;
+            border-left: 70px solid transparent;
+            border-right: 70px solid transparent;
+            border-bottom: 70px solid #f00;
+        }
+
+        .tri2 {
+            width: 0;
+            height: 0;
+            border-left: 70px solid transparent;
+            border-right: 70px solid transparent;
+            border-top: 70px solid #f00;
+        }
+
+        .brick{
+            display: flex;
+            margin-top: 10px;
+            margin-left: 10px;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .number{
+            font-size: 120px;
+            color: #f00;
+        }
+
+        .brick2{
+            position: absolute;
+            display: flex;
+            margin-top: 10px;
+            margin-left: 10px;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            bottom: 10px;
+            right: 10px;
+            transform: rotate(180deg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .brick3{
+            position: absolute;
+            display: flex;
+            margin-top: 10px;
+            margin-left: 10px;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            left: 50%;
+            top: 250px;
+
+            transform: translateX(-50%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .brick4{
+            position: absolute;
+            display: flex;
+            margin-top: 10px;
+            margin-left: 10px;
+            flex-direction: column;
+            align-items: center;
+            width: fit-content;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="brick">
+            <div class="number">
+                2
+            </div>
+            <div class="triangle">
+                <div class="tri1">
+
+                </div>
+                <div class="tri2">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="brick2">
+            <div class="number">
+                2
+            </div>
+            <div class="triangle">
+                <div class="tri1">
+
+                </div>
+                <div class="tri2">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="brick3">
+            <div class="triangle">
+                <div class="tri1">
+
+                </div>
+                <div class="tri2">
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="brick4">
+            <div class="triangle">
+                <div class="tri1">
+
+                </div>
+                <div class="tri2">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

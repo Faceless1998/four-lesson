@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.product{
+    width: 200px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product .image{
+    width: 100%;
+}
+
+.product .image img{
+    width: 100%;
+}
+
+.product .offer{
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #f79009;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.current{
+    color: #EC5E2A;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+}
+
+.regular{
+    color: #535353;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: line-through;
+    text-decoration-color: #EC5E2A;
+    text-decoration-thickness: 1px;
+}
+
+.price{
+    display: flex;
+    gap: 10px;
+}
+
+.price > div::after, .bank span::after{
+    content: " ₾ ";
+}
+
+.bank{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12px;
+}
+
+.bank span{
+    font-size: 10px;
+    color: #EC5E2A;
+}
+
+.title{
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.adding{
+    display: flex;
+    gap: 10px;
+    height: 20px;
+}
+
+.adding .diff{
+    background-color: #f2f2f2;
+    color: #797979;
+    font-size: 12px;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.adding .diff i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.adding .cart{
+    color: black;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: fit-content;
+    height: 40px;
+    padding: 0 10px;
+    background-color: #F28F6A;
+    border-radius: 3px;
+}
+
+.product:hover{
+    transform: translate(0, -5px);
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border-left:100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid #000;
+}
+
+
+
+.triangle2{
+    width: 0;
+    height: 0;
+    border-left:100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 100px solid #000;
+}
