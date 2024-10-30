@@ -24,7 +24,7 @@ section {
   gap: 10px;
 }
 
-.cars .title{
+.cars>.title{
     font-size: 50px;
     font-weight: 900;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -62,6 +62,14 @@ section {
     color: white;
 }
 
+.cars .list{
+    display: flex;
+    flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+width: 1200px;
+}
+
 .cars .list .item .review{
     display: flex;
     justify-content: space-between;
@@ -96,10 +104,79 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
-.cars .list .item {
+.cars .list>.item{
+    padding: 20px;
     width: 300px;
+    box-shadow: 0px 0px 10px grey;
 }
+
 
 .cars .list .item img{
     width: 100%;
+}
+
+.cars .list .item .title{
+    font-size: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+
+.list .item .properties{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.cars .list .item .options{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.cars .list .item .options .item{
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.cars .list .item .options .item .name{
+    color: #BBBBBC;
+}
+
+.cars .list .item .icons {
+    display: flex;
+    gap: 10px;
+}
+
+.cars .list .item .icons .ac{
+    background-color: #FFF4ED;
+    color: #FC6F17;
+}
+
+.cars .list .item .icons .mechanic{
+    background-color: #F3F1FF;
+    color: #5742FE;
+}
+
+
+.cars .list .item .icons .people{
+    background-color: #EDF8F6;
+    color: #019172;
+}
+
+.cars .list .item .icons >div{
+   font-size: 14px;
+   padding: 6px 6px;
+   width: 40px;
+   height: fit-content;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
+
+.cars .list .item .icons i{
+    margin-right: 2px;
 }
