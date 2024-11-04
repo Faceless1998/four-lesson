@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .animated{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* animation-name: animation; */
+            /* animation-duration: 5s;
+            animation-iteration-count: infinite; */
+            position: relative;
+            /* animation-delay: 2s;
+            animation-direction:normal; */
+            /* opacity: 0; */
+            animation: animation 5s infinite;
+            animation-fill-mode:both;
+        }
+
+        .div1{
+            animation-timing-function: linear;
+        }
+
+        .div2{
+            animation-timing-function: ease;
+        }
+
+        .div3{
+            animation-timing-function: ease-in;
+        }
+        .div4{
+            animation-timing-function: ease-out;
+        }
+
+        .div5{
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes example{
+            0%{
+                background-color: red;
+                top: 0;
+                left: 0;
+                opacity: 0;
+            }
+            25%{
+                background-color: aqua;
+                top: 0;
+                left: 100px;
+                opacity: 0.5;
+            }
+            50%{
+                background-color: blue;
+                left: 100px;
+                top: 100px;
+                opacity: 1;
+            }
+            75%{
+                background-color: greenyellow;
+                left: 0;
+                top: 100px;
+                opacity: 0.5;
+            }
+            100%{
+                background-color:gold;
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes animation{
+            from{left: 0;}
+            to{left:300px; background-color: blue;}
+        }
+    </style>
+
+</head>
+<body>
+    
+<div class="animated div1">
+
+</div>
+
+<div class="animated div2">
+
+</div>
+
+<div class="animated div3">
+
+</div>
+
+<div class="animated div4">
+
+</div>
+
+<div class="animated div5">
+
+</div>
+</body>
+</html>
