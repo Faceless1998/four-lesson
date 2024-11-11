@@ -12,11 +12,13 @@ section {
   width: 100%;
 }
 
+body{
+  overflow-x: hidden;
+}
 /* Navbar */
 
 .navbar {
   height: 52px;
-  position: fixed;
   z-index: 9999;
   width: 100%;
   display: flex;
@@ -112,4 +114,25 @@ span {
   position: relative;
   width: 30px;
   height: 30px;
+}
+
+
+.navbar-mobile{
+  display: none;
+}
+
+@media only screen and (max-width:660px){
+  .right{
+    display: none;
+  }
+
+  .navbar{
+    display: flex;
+    align-items: center;
+  }
+  .navbar-mobile{
+    display: block;
+    font-size: 35px;
+    margin-right: 50px;
+  }
 }
