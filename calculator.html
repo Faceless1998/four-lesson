@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: mintcream;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .calculator{
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            width: 360px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .display{
+            margin-bottom: 20px;
+        }
+
+        #result{
+            width: 100%;
+            height: 60px;
+            font-size: 2.5rem;
+            background-color: #121212;
+            color: #fff;
+            text-align: right;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        button{
+            background-color: #333;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover{
+            background-color: #555;
+        }
+
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button:active{
+            background-color: #777;
+        }
+        .operator{
+            background-color: #00aaff;
+        }
+
+        .operator:hover{
+            background-color: #0088cc;
+        }
+
+
+        .equil{
+            background-color: #e68900;
+        }
+
+        .equil:hover{
+            background-color: #e69800;
+        }
+        .clean{
+            background-color: #f44336;
+            grid-column: span 4;
+        }
+
+        .clean:hover{
+            background-color: #d32f2f;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="result" disabled placeholder="10">
+        </div>
+
+        <div class="buttons">
+            <button class="button clean">C</button>
+
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button operator">/</button>
+
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button operator">*</button>
+
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button operator">-</button>
+
+            <button class="button zero">0</button>
+            <button class="button">.</button>
+            <button class="button equil">=</button>
+            <button class="button operator">+</button>
+
+
+        </div>
+
+    </div>
+</body>
+</html>
