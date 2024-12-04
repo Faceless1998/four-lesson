@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: coral;
+        }
+
+        .geo-flag {
+            position: relative;
+            width: 200px;
+            height: 133px;
+            background-color: white;
+        }
+
+        .small-cross {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+        }
+
+        .small-cross::before,
+        .small-cross::after {
+            background-color: red;
+            position: absolute;
+            content: '';
+        }
+
+
+        .small-cross::before {
+            width: 100%;
+            height: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .small-cross::after {
+            height: 100%;
+            width: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .small-cross.top-left {
+            top: 10%;
+            left: 10%;
+        }
+
+        .small-cross.top-right {
+            top: 10%;
+            right: 10%;
+        }
+
+        .small-cross.bottom-left {
+            bottom: 10%;
+            left: 10%;
+        }
+
+        .small-cross.bottom-right {
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .big-cross .horizontal,
+        .big-cross .vertical {
+            background-color: red;
+            position: absolute;
+        }
+
+        .big-cross .horizontal {
+            width: 100%;
+            height: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+
+        .big-cross .vertical {
+            width: 30px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+
+        <div class="geo-flag">
+
+            <div class="big-cross">
+                <div class="horizontal"></div>
+                <div class="vertical"></div>
+            </div>
+
+
+            <div class="small-cross top-left">
+            </div>
+
+            <div class="small-cross top-right">
+            </div>
+
+            <div class="small-cross bottom-left">
+            </div>
+
+            <div class="small-cross bottom-right">
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="first"></div>
+
+    <script>
+
+        var a = 4; //number
+        var b = "4 "; // string
+        var c = 1;
+
+        a=b //a ტოლია b ელემენტისა
+        a==b //a ექვივალენტურია b ელემენტის
+        a===b //a ზუსტად ექვივალენტურია b ელემენტის
+
+        //concat
+
+        document.getElementById("first").innerHTML =`+ ${a+c+b}` ;
+
+    </script>
+</body>
+
+</html>
