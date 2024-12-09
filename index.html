@@ -13,79 +13,112 @@
 
     <script>
         /*
-            key - სახელები, რომლებსაც ობიექტი იყენებს
-            value - მნიშვნელობები, რომლებიც მიბმული არიან key ელემენტზე
+                var pi = 3.14;  number with decimals
+                var x = 3       number without decimals
+                var y = 125e12  125000000000000 - exponent
+                var z = 99999999999999999999; 1000000000000000000000000
+        
+                var a = 0.1 + 0.2; 0.30000000000000004
+                var b = (0.2 * 10 + 0.1 * 10) / 10;
+        
+                var c = "10";
+                var d = "20";
+                document.getElementById("demo").innerHTML = c + d;
+        
+                var e = "1000"
+                var f = "10"
+                document.getElementById("demo").innerHTML = e/f;
+        
+                var g = "100"
+                var h = "10"
+                document.getElementById("demo").innerHTML = g*h;
+        
+                var i = "100"
+                var j = "10"
+                document.getElementById("demo").innerHTML = i-j;
+        
+                var  k = 100 / "ten";
+                document.getElementById("demo").innerHTML = isNaN(k);
+                
+                var l = Infinity + 5;
+                document.getElementById("demo").innerHTML = l;
+        
+                var m = 2;
+                document.getElementById("demo").innerHTML = -m / 0;
+        
+                var n = 0xffffff;
+                document.getElementById("demo").innerHTML = n
+       
+                var o = 20;
+                document.getElementById("demo").innerHTML = o.toString(32)
+                document.getElementById("demo").innerHTML = o.toString(16)
+                document.getElementById("demo").innerHTML = o.toString(12)
+                document.getElementById("demo").innerHTML = o.toString(10)
+                document.getElementById("demo").innerHTML = o.toString(8)
+                document.getElementById("demo").innerHTML = o.toString(2)
+                
+                var x = 123
+                var y = new String("123") დინამიური გამოძახება / ობიექტი
+                var z = new Number(123) დინამიური გამოძახება / ობიექტი
+                
+                var x = 500
+                var y = new Number(500)
+                document.getElementById("demo").innerHTML = (x===y)
         
 
-        const car = {
-            carName:"Mercedes-benz",
-            carModel:"cls",
-            releaseDate:2018,
-            distance:30000,
-        }
+                var x = 999999999999999999n + 2n;
 
-        const person = {
-            firstName:"John",
-            lastName:"Doe",
-            age:30,
-            id:611111111111,
-            fullName: function(){
-                return this.firstName + " " + this.lastName;
-            }
-        };
+                document.getElementById("demo").innerHTML = x
+       
 
-        document.getElementById("demo").innerHTML = "Person: " +  person.fullName();
-        */
-
-        /*
-        Array - მასივი
+                document.getElementById("demo").innerHTML = (9007199254740992 === 9007199254740993 ) MAX_SAFE_INTEGER
         
-
-        var MonthLastDays = [31,28,31,30,31,30,31,31,30,31,30,31];
-
-        MonthLastDays[1] = 29;
-
-        document.getElementById("demo").innerHTML = MonthLastDays[1];
-        */
-
-        var a = "This is sparta? sparta is a big city. sparta is a big city. sparta is a big city.";
-        get = document.getElementById("demo");
-        /*
-        get.innerHTML = a.length; - ტექსტის ზომა
-        get.innerHTML = a.charAt(1); - ასო რომელიც ტექსტში X ადგილას მდებარეობს
-        get.innerHTML = a.charCodeAt(13); - მოცემული ასოს კოდი
-        get.innerHTML = a.at(1)  charAt ანალოგი
-        get.innerHTML = a.at(-2);
-        get.innerHTML = a.slice(10,-4); ტექსტის მოჭრა Xდან Yმდე
-        get.innerHTML = a.substring(2,13); ტექსტის მოჭრა Xდან Yმდე სადაც ორივე რიცხვდი დადებითია
-        get.innerHTML = a.substr(2,5) ტექსტის მოჭრა Xდან Y დაშორებით 
-        get.innerHTML = a.toUpperCase() ტექსტი დიდი ასოებით
-        get.innerHTML = a.toLowerCase() ტექსტი პატარა ასოებით
-        get.innerHTML = a.trim(); გარეგანი დაშორებების მოშლა
-        get.innerHTML = a.trimStart()
-        get.innerHTML = a.trimEnd()
-        get.innerHTML = a.padEnd(4,"Win") X ტექსტის სრული რაოდენობა , Y არის შევსება თუ ნაკლებია
-        get.innerHTML = a.padStart(4,"Win") X ტექსტის სრული რაოდენობა , Y არის შევსება თუ ნაკლებია
-        get.innerHTML = a.repeat(4) ტექსტის განმეორება
-        get.innerHTML = a.replace("sparta ".trim(), "Batumi") X სიტყვა ტექსტიდან, Y სიტყვა რომლითაც ვანაცვლებთ
-        get.innerHTML = a.replace(/sparta/g,"batumi") Regular Expresion a.k.a. RegEx
-        get.innerHTML = a.replaceAll("sparta","batumi");
-        get.innerHTML = a.split("."); დაყოს ტექსტი მასივად , გამყოფი ელემენტი არის X;
+                რიცხვები არსებობენ -9007199254740991-დან 9007199254740991-მდე
         
-        b = a.indexOf("is");
-        get.innerHTML = a.indexOf("is",b+1);
-        get.innerHTML = a.lastIndexOf("is");
-        get.innerHTML = a.search(/is/g);
-        get.innerHTML = a.match("is");
-        var iterator = a.matchAll(/is/g);
-        get.innerHTML = Array.from(iterator).length;
-    
-        get.innerHTML = a.includes("is s",10) X არის ელემენტი რასაც ვეძებთ Y საიდანაც ვეძებთ 
+                var x = Number.MAX_SAFE_INTEGER
+                document.getElementById("demo").innerHTML = x
+            
+            document.getElementById("demo").innerHTML = Number.MAX_VALUE
+            document.getElementById("demo").innerHTML = Number.MIN_VALUE
+            document.getElementById("demo").innerHTML = Number.isInteger(10.00000000000000009);
+            document.getElementById("demo").innerHTML = Number.isSafeInteger(9007199254740991.4);
+            var x = 9.656;
+            document.getElementById("demo").innerHTML = x.toExponential(1);
+            
+            var x = 9.656;
+            document.getElementById("demo").innerHTML = x.toFixed(0); returns number
+            
+            var x = 9.6566450000;
+            document.getElementById("demo").innerHTML = x.toPrecision(4) returns string
+            
+            var x = 123;
+            x.valueOf();
+            document.getElementById("demo").innerHTML = (123).valueOf() აბრუნებს რიცხვს რიცხვად 
+            
+            var x = "100.1"
+            x = parseFloat(x);
+            x = parseInt(x);
+            document.getElementById("demo").innerHTML = x
 
-        get.innerHTML = a.startsWith("This is");
-        get.innerHTML = a.endsWith("city.");
-        */
+           var x = new Date("1971-01-01");
+           document.getElementById("demo").innerHTML = Number(x) თუ დრო გადადის Number-ში ესაა მილიწამები 1970 წლის 1 იანვრიდან
+           
+
+            var x = new Date()
+            var year = x.getFullYear()
+            var month = x.getMonth()
+            var day = x.getDate()
+            var weekDay = x.getDay()
+            var miliseconds = x.getMilliseconds()
+            var seconds = x.getSeconds()
+            var time = x.getTime()
+            var HourDate = x.getHours();
+            var Minutes = x.getMinutes();
+            var UTCHour = x.getUTCHours();
+            document.getElementById("demo").innerHTML = UTCHour;
+            */
     </script>
+
 </body>
 
 </html>
