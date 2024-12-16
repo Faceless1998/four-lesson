@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="currency">
+        <div class="firstcur">
+            <div>amount</div>
+            <div class="curchooser">
+                <div class="flag_usa">
+                    <img src="Flag_of_the_United_States.svg.webp">
+                </div>
+                <div class="name">USD</div>
+                <input type="text" id="usdollar">
+            </div>
+        </div>
+
+        <div class="middle">
+            <hr class="line">
+            <div class="rect"></div>
+            <div class="circle">
+                <button type="submit" onclick="usdtogel()"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+            </div>
+        </div>
+
+        <div class="secondcur">
+            <div>converted amount</div>
+            <div class="curchooser">
+                <div class="flag_geo">
+                    <img src="Flag_of_Georgia.svg.png">
+                </div>
+                <div class="name">GEL</div>
+                <div id="result" class="result"></div>
+            </div>
+        </div>
+    </div>
+    <div id="demo"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

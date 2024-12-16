@@ -5,45 +5,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        button {
+            width: 200px;
+            height: 100px;
+            font-size: 30px;
+            background-color: lightgreen;
+            border: 5px groove black;
+        }
+
+        button:active {
+            border-style: ridge;
+            background-color: green;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- <label>a:</label><input type="text" id="vala"><br>
+    <label>b:</label><input type="text" id="valb"><br>
+    <label>c:</label><input type="text" id="valc"><br>
 
-    <div class="currency">
-        <div class="firstcur">
-            <div>amount</div>
-            <div class="curchooser">
-                <div class="flag_usa">
-                    <img src="Flag_of_the_United_States.svg.webp">
-                </div>
-                <div class="name">USD</div>
-                <input type="text" id="usdollar">
-            </div>
-        </div>
+    <button onclick="roots()">OK</button> -->
+    <!-- <input type="text" id="value"> -->
 
-        <div class="middle">
-            <hr class="line">
-            <div class="rect"></div>
-            <div class="circle">
-                <button type="submit" onclick="usdtogel()"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
-            </div>
-        </div>
 
-        <div class="secondcur">
-            <div>converted amount</div>
-            <div class="curchooser">
-                <div class="flag_geo">
-                    <img src="Flag_of_Georgia.svg.png">
-                </div>
-                <div class="name">GEL</div>
-                <div id="result" class="result"></div>
-            </div>
-        </div>
-    </div>
+    //
+    <script>
+        // function roots(){
+        //     var a = document.getElementById("vala").value;
+        //     var b = document.getElementById("valb").value;
+        //     var c = document.getElementById("valc").value;
+
+        //     var x1 = (-b - Math.sqrt(b*b-4*a*c)) / (2*a);
+        //     var x2 = (-b + Math.sqrt(b*b-4*a*c)) / (2*a);
+        //     document.getElementById("demo").innerHTML = "X1 = "+x1+" X2 = "+x2;
+        // }
+
+        // var a = prompt("Write A")
+        // var id = document.getElementById("demo");
+
+        // var x = 2;
+
+        /*
+        id.innerHTML = Math.PI //დიდი ასოებით დაწერილია მუდმივები (ელემენტები რომლებიც არასოდეს არ იცვლება)
+        id.innerHTML = Math.abs(1) //მოდული
+        id.innerHTML = Math.ceil(0.0000000001) //დამრგვალება მაღალ ინდექსზე
+        id.innerHTML = Math.floor(0.9999999999999999) //დამრგვალება დაბალ ინდექსზე
+        id.innerHTML = Math.round(0.49) //კლასიკური დამრგვალება
+        id.innerHTML = Math.cos(90) // კოსინუსის მნიშვნელობა
+        id.innerHTML = Math.max(5,6,8,1,57,12,5); //მასივის მაქსიმალური რიცხვი
+        id.innerHTML = Math.min(5,6,8,1,57,12,5) //მასივის მინიმალური რიცხვი
+        id.innerHTML = Math.pow(X,Y) //Xის Y ხარისხი
+        id.innerHTML = Math.sqrt(X) //Xის კვადრატული ფესვი
+        id.innerHTML = Math.pow(X, 1/Y) //Xის ფესვი ნებისმიერ ფუძით
+        id.innerHTML = Math.random() // რიცხვები შემთხვევითობის პრინციპით
+        id.innerHTML = Math.floor(Math.random() * X) // შემთხვევით რიცხვი 0დან Xმდე (X არა)
+        id.innerHTML = Math.sign(-1121)
+        id.innerHTML = Math.trunc(4.9)
+        */
+
+        // მე მყავს მეგობარი ამერიკაში მინდა მივყიდო მიწა, მას აინტერესებს სკადრატულ ინჩებში, დაწერეთ ჰექტრიდან ინჩებში გადასაყვანი ფორმულა
+        // function saxeli(){
+        //     var a = document.getElementById("a").value;
+        //     var squaremiles = 0.00386102;
+        //     document.getElementById("demo").innerHTML = a * squaremiles
+        // }
+
+    //</script>
+
+
+    <input type="text" id="a">
+    <button onclick="saxeli()">OK</button>
     <div id="demo"></div>
-    <script src="script.js"></script>
+    <script>
+        function saxeli(){
+            var a = document.getElementById("a").value;
+            var squaremiles = 0.00386102;
+            document.getElementById("demo").innerHTML = a * squaremiles
+        }
+    </script>
+    
 </body>
 
 </html>
