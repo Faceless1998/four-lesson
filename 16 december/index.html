@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        #win {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="team">
+        <label> Manchester United </label>
+        <input id="win" type="text">
+        <input id="draw" type="text">
+        <input id="lose" type="text">
+    </div>
+
+    <button onclick="totalPoint()">Summary</button>
+
+    <div id="demo"></div>
+    <script>
+        function totalPoint() {
+            var win = Number(document.getElementById("win").value);
+            var draw = Number(document.getElementById("draw").value);
+            var lose = Number(document.getElementById("lose").value);
+            
+            var total = win * 3 + draw;
+
+            document.getElementById("demo").innerHTML = total;
+        }
+    </script> -->
+
+    <!-- <div>
+        Animal Farm:
+    </div>
+
+    <input type="text" id="chicken">
+    <input type="text" id="cow">
+    <input type="text" id="pig">
+
+    <button onclick="animalCalculator()">OK</button>
+    <div id="demo">Leg Total Count: </div>
+
+    <script>
+        function animals(chickens, cows, pigs){
+            return (chickens*2) + (cows*4) + (pigs*4);
+        }
+
+        function animalCalculator(){
+            var chicken = Number(document.getElementById("chicken").value);
+            var cow = Number(document.getElementById("cow").value);
+            var pig = Number(document.getElementById("pig").value);
+            document.getElementById("demo").innerHTML = animals(chicken,cow,pig);
+        }
+
+        function currency(course, amount){
+            return course*amount;
+        }
+        var a = currency(5,6);
+        // var b = animalCalculator(); ERROR
+        document.getElementById("demo").innerHTML = a;
+
+    </script> -->
+
+
+    <!-- <div id="demo"></div>
+    <script>
+        function populationByDecade(population, n, x) {
+            const monthsByDecade = 15 * 12;
+            const futurePopulationIncrease = monthsByDecade * n;
+            const deathByMonths = monthsByDecade * x;
+            return population + futurePopulationIncrease - deathByMonths;
+        }
+
+        var currentPopulation = 8194302268;
+        var monthIncrease = 255520*30;
+        var death = 120445*30;
+        var futurePopulation = populationByDecade(currentPopulation, monthIncrease, death);
+        document.getElementById("demo").innerHTML = futurePopulation;
+    </script> -->
+
+    <!-- <div id="demo"></div>
+    <script>
+        function Luwi(){
+            return "რიცხვი არის ლუწი";
+        }
+
+        function kenti(){
+            return "რიცხვი არის კენტი";
+        }
+
+        function luwOrKenti(ricxvi){
+            if(ricxvi % 2 == 0){
+                return Luwi();
+            }
+            else{
+                return kenti();
+            }
+        }
+
+        var ricxvi = 6;
+        document.getElementById("demo").innerHTML = luwOrKenti(ricxvi); 
+    </script>-->
+
+    <div id="demo"></div>
+
+    <script>
+        var now = new Date();
+
+        var Bday = new Date("1998-07-30");
+
+        var miliseconds = (now - Bday) / (1000 * 3600 * 24);
+
+        var daysLeft = 1000000 - Math.floor(miliseconds);
+        var dayOff = Number(now)
+        var DayLeftMiliseconds = daysLeft * 1000 * 3600 * 24
+        var total = dayOff + DayLeftMiliseconds;
+        var futureDay = new Date(total)
+        document.getElementById("demo").innerHTML = futureDay
+    </script>
+</body>
+
+</html>

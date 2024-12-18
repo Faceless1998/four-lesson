@@ -5,129 +5,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        input {
-            width: 20px;
-            margin-right: 10px;
-        }
-
-        #win {
-            margin-left: 20px;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- <div class="team">
-        <label> Manchester United </label>
-        <input id="win" type="text">
-        <input id="draw" type="text">
-        <input id="lose" type="text">
-    </div>
 
-    <button onclick="totalPoint()">Summary</button>
+    <div id="sport"></div>
 
-    <div id="demo"></div>
     <script>
-        function totalPoint() {
-            var win = Number(document.getElementById("win").value);
-            var draw = Number(document.getElementById("draw").value);
-            var lose = Number(document.getElementById("lose").value);
+        //უკუსვლით ჩამოყოლა მეორე ინდექსი >= ან > და i--
+        /*
+            for(var i = 10;i>=0;i--){
+    
+            }
+        */
+        //წინსვლით ჩამოყოლა მეორე ინდექსი <= ან < და i++
+        /*
+            for(var i = 0;i<=10;i++){
+    
+            }
+        */
+        //მოქმედება შესრულდება მაშინ როცა დაკმაყოფილდება პირობა 
+        //თუ პირობა არ დაკმაყოფილდა. ბოლო მოქმედება მაინც შესრულდება უბრალოდ ვერ დავინახავთ
+        /*
+            var x;
+            for(var i = 10;i>=0;i--){
+                document.getElementById("sport").innerHTML += i + "<br>";
+                x=i
+            }
             
-            var total = win * 3 + draw;
+            document.getElementById("sport").innerHTML += x + "<br>" + i
+        */
 
-            document.getElementById("demo").innerHTML = total;
-        }
-    </script> -->
-
-    <!-- <div>
-        Animal Farm:
-    </div>
-
-    <input type="text" id="chicken">
-    <input type="text" id="cow">
-    <input type="text" id="pig">
-
-    <button onclick="animalCalculator()">OK</button>
-    <div id="demo">Leg Total Count: </div>
-
-    <script>
-        function animals(chickens, cows, pigs){
-            return (chickens*2) + (cows*4) + (pigs*4);
-        }
-
-        function animalCalculator(){
-            var chicken = Number(document.getElementById("chicken").value);
-            var cow = Number(document.getElementById("cow").value);
-            var pig = Number(document.getElementById("pig").value);
-            document.getElementById("demo").innerHTML = animals(chicken,cow,pig);
-        }
-
-        function currency(course, amount){
-            return course*amount;
-        }
-        var a = currency(5,6);
-        // var b = animalCalculator(); ERROR
-        document.getElementById("demo").innerHTML = a;
-
-    </script> -->
-
-
-    <!-- <div id="demo"></div>
-    <script>
-        function populationByDecade(population, n, x) {
-            const monthsByDecade = 15 * 12;
-            const futurePopulationIncrease = monthsByDecade * n;
-            const deathByMonths = monthsByDecade * x;
-            return population + futurePopulationIncrease - deathByMonths;
-        }
-
-        var currentPopulation = 8194302268;
-        var monthIncrease = 255520*30;
-        var death = 120445*30;
-        var futurePopulation = populationByDecade(currentPopulation, monthIncrease, death);
-        document.getElementById("demo").innerHTML = futurePopulation;
-    </script> -->
-
-    <!-- <div id="demo"></div>
-    <script>
-        function Luwi(){
-            return "რიცხვი არის ლუწი";
-        }
-
-        function kenti(){
-            return "რიცხვი არის კენტი";
-        }
-
-        function luwOrKenti(ricxvi){
-            if(ricxvi % 2 == 0){
-                return Luwi();
+        //ჩაციკლვა
+        /*
+            for (var i = 0; i < 10; i--) {
+            
             }
-            else{
-                return kenti();
+        */
+
+        //var a = [1,2,3,4,5,6,7,8,9]
+        //გვიწევს ჩვენით განსაზღვრა ყველაფრის
+        /*
+        for(var i=0;i<a.length;i++){
+            document.getElementById("sport").innerHTML += a[i] + "<br>"
+        }
+        */
+        //ხვდება მასივის სიგრძეს
+        /*
+        for(let x in a){
+            document.getElementById("sport").innerHTML += a[x] + "<br>"
+        }
+        */
+        //ცვლადი (x) იღებს მნიშვნელობას და არა ინდექსს
+        /*
+        for (let x of a){
+            document.getElementById("sport").innerHTML += x
+        }
+        */
+        //json
+        //     var car = {
+        //         name:"ford",
+        //         model:"mustang",
+        //         year:2024,
+        //         fuel:"benzin",
+        //    }
+
+        //    document.getElementById("sport").innerHTML = car.fuel
+
+        //    for(var x in car){
+        //     document.getElementById("sport").innerHTML += car[x] + " "
+        //    }
+
+        //    for(var x of car){
+        //     document.getElementById("sport").innerHTML += x +  " "
+        //    }
+        // var a = 5
+        // while (a > 0) {
+        //     document.getElementById("sport").innerHTML += a;
+        //     a--;
+        // }
+        // var a = 0,b,c;
+        // while(a == 0){
+        //     a=prompt("shemoitanet a")
+        // }
+        // b=prompt("shemoitanet b")
+        // c=prompt("shemoitanet c")
+
+        // document.getElementById("sport").innerHTML += a;
+       /* var a = 5;
+
+        function factorial(ricxvi){
+            var tmp=1;
+            for(var i=1;i<=ricxvi;i++){
+                tmp*=i;
             }
+            return tmp;
         }
 
-        var ricxvi = 6;
-        document.getElementById("demo").innerHTML = luwOrKenti(ricxvi); 
-    </script>-->
+        document.getElementById("sport").innerHTML = factorial(a)
+        */
+       /*var a=1,b=1;
+        var pas = "1 1 ";
+        var tmp; 
+       var x = 20;
+       function fibonacci(digit){
+            for(var i = 3 ; i<=digit ; i++){
+                tmp = a+b;
+                a=b;
+                b=tmp;
+                pas+=b + " ";
+            }
+            return pas;
+       }
+       document.getElementById("sport").innerHTML = fibonacci(x)*/
+    //    var a=0,b=1,text="",x=10;
 
-    <div id="demo"></div>
+    //    function factorial(a,b){
+    //         return a+b;
+    //    }
 
-    <script>
-        var now = new Date();
-
-        var Bday = new Date("1998-07-30");
-
-        var miliseconds = (now - Bday) / (1000 * 3600 * 24);
-
-        var daysLeft = 1000000 - Math.floor(miliseconds);
-        var dayOff = Number(now)
-        var DayLeftMiliseconds = daysLeft * 1000 * 3600 * 24
-        var total = dayOff + DayLeftMiliseconds;
-        var futureDay = new Date(total)
-        document.getElementById("demo").innerHTML = futureDay
+    //    for(var i = 1 ; i<=x ; i++){
+    //         text += b + " ";
+    //         var tmp = factorial(a,b);
+    //         a=b;
+    //         b=tmp;
+    //     }
+    //     document.getElementById("sport").innerHTML = text
+        
+        var txt = "this is sparta";
+        var a = txt.split(""); 
+        for (var j = 0; j < a.length; j++) { 
+            if(a[j] == "a" && a[j] == "i") a[j] = ""
+            if(a[j] == "e") a[j] = ""
+            if(a[j] == "o") a[j] = ""
+            if(a[j] == "y") a[j] = ""
+            if(a[j] == "u") a[j] = ""
+            document.getElementById("sport").innerHTML += a[j];
+        }
+        
+        //ths s sprt
     </script>
+
 </body>
 
 </html>
