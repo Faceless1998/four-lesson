@@ -9,141 +9,113 @@
 
 <body>
 
-    <div id="sport"></div>
-
     <script>
-        //უკუსვლით ჩამოყოლა მეორე ინდექსი >= ან > და i--
-        /*
-            for(var i = 10;i>=0;i--){
-    
+
+        document.addEventListener("DOMContentLoaded", function () {
+            //ნაკიანი წელიწადის გამოთვლა (True ან false)
+            function isLeapYear(year) {
+                return (year % 4 === 0 && year % 100 === 0) || (year % 400 === 0)
             }
-        */
-        //წინსვლით ჩამოყოლა მეორე ინდექსი <= ან < და i++
-        /*
-            for(var i = 0;i<=10;i++){
-    
+
+            //ავღნიშნოთ მიმდინარე წელი
+            const year = new Date().getFullYear();
+            //თვეების სახელები
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            //თვეების რიცხვები
+            const monthDays = [
+                31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+            ];
+            //თუ წელიწადი ნაკიანია
+            if (isLeapYear(year)) {
+                monthDays[1] = 29
             }
-        */
-        //მოქმედება შესრულდება მაშინ როცა დაკმაყოფილდება პირობა 
-        //თუ პირობა არ დაკმაყოფილდა. ბოლო მოქმედება მაინც შესრულდება უბრალოდ ვერ დავინახავთ
-        /*
-            var x;
-            for(var i = 10;i>=0;i--){
-                document.getElementById("sport").innerHTML += i + "<br>";
-                x=i
-            }
-            
-            document.getElementById("sport").innerHTML += x + "<br>" + i
-        */
 
-        //ჩაციკლვა
-        /*
-            for (var i = 0; i < 10; i--) {
-            
-            }
-        */
+            //სკრიპტი წარმოქმნის HTML ელემენტს
+            const calendarContainer = document.createElement("div");
 
-        //var a = [1,2,3,4,5,6,7,8,9]
-        //გვიწევს ჩვენით განსაზღვრა ყველაფრის
-        /*
-        for(var i=0;i<a.length;i++){
-            document.getElementById("sport").innerHTML += a[i] + "<br>"
-        }
-        */
-        //ხვდება მასივის სიგრძეს
-        /*
-        for(let x in a){
-            document.getElementById("sport").innerHTML += a[x] + "<br>"
-        }
-        */
-        //ცვლადი (x) იღებს მნიშვნელობას და არა ინდექსს
-        /*
-        for (let x of a){
-            document.getElementById("sport").innerHTML += x
-        }
-        */
-        //json
-        //     var car = {
-        //         name:"ford",
-        //         model:"mustang",
-        //         year:2024,
-        //         fuel:"benzin",
-        //    }
+            calendarContainer.style.display = "flex";
+            calendarContainer.style.flexWrap = "wrap";
+            calendarContainer.style.gap = "10px"
+            calendarContainer.style.justifyContent = "center";
 
-        //    document.getElementById("sport").innerHTML = car.fuel
+            //სკრიპტმა body თეგს მიამაგრა calendarContainer
+            document.body.appendChild(calendarContainer);
+            //თვეების შექმნა
+            months.forEach((month, index) => {
+                const days = monthDays[index];
+                const monthContainer = document.createElement("div");
+                monthContainer.style.width = "180px";
+                monthContainer.style.border = "1px solid black";
+                monthContainer.style.padding = "10px"
+                monthContainer.style.textAlign = "center";
+                monthContainer.style.backgroundColor = "#f9f9f9";
 
-        //    for(var x in car){
-        //     document.getElementById("sport").innerHTML += car[x] + " "
-        //    }
+                const monthName = document.createElement("h3");
+                monthName.style.margin = "0 0 10px 0";
+                monthName.style.fontSize = "16px";
+                monthName.textContent = month;
 
-        //    for(var x of car){
-        //     document.getElementById("sport").innerHTML += x +  " "
-        //    }
-        // var a = 5
-        // while (a > 0) {
-        //     document.getElementById("sport").innerHTML += a;
-        //     a--;
-        // }
-        // var a = 0,b,c;
-        // while(a == 0){
-        //     a=prompt("shemoitanet a")
-        // }
-        // b=prompt("shemoitanet b")
-        // c=prompt("shemoitanet c")
+                monthContainer.appendChild(monthName);
 
-        // document.getElementById("sport").innerHTML += a;
-       /* var a = 5;
+                const dayContainer = document.createElement("div");
+                dayContainer.style.display = "grid";
+                dayContainer.style.gridTemplateColumns = "repeat(7,1fr)";
+                dayContainer.style.gap = "2px";
 
-        function factorial(ricxvi){
-            var tmp=1;
-            for(var i=1;i<=ricxvi;i++){
-                tmp*=i;
-            }
-            return tmp;
-        }
+                const dayHeader = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+                dayHeader.forEach(day => {
+                    const daysInWeek = document.createElement("div");
+                    daysInWeek.textContent = day;
 
-        document.getElementById("sport").innerHTML = factorial(a)
-        */
-       /*var a=1,b=1;
-        var pas = "1 1 ";
-        var tmp; 
-       var x = 20;
-       function fibonacci(digit){
-            for(var i = 3 ; i<=digit ; i++){
-                tmp = a+b;
-                a=b;
-                b=tmp;
-                pas+=b + " ";
-            }
-            return pas;
-       }
-       document.getElementById("sport").innerHTML = fibonacci(x)*/
-    //    var a=0,b=1,text="",x=10;
+                    daysInWeek.style.fontWeight = "bold";
+                    daysInWeek.style.fontSize = "12px";
+                    daysInWeek.style.textAlign = "center";
+                    daysInWeek.style.borderBottom = "1px solid #ccc";
+                    if (day === "Sat" || day === "Sun") {
+                        daysInWeek.style.color = "red"
+                    }
+                    dayContainer.appendChild(daysInWeek);
+                });
 
-    //    function factorial(a,b){
-    //         return a+b;
-    //    }
+                let firstDay = new Date(year, index, 1).getDay();
+                
+                if(firstDay === 0){
+                    firstDay = 6;
+                }else{
+                    firstDay = firstDay - 1
+                }
 
-    //    for(var i = 1 ; i<=x ; i++){
-    //         text += b + " ";
-    //         var tmp = factorial(a,b);
-    //         a=b;
-    //         b=tmp;
-    //     }
-    //     document.getElementById("sport").innerHTML = text
-        
-        var txt = "this is sparta";
-        var a = txt.split(""); 
-        for (var j = 0; j < a.length; j++) { 
-            if(a[j] == "a" && a[j] == "i") a[j] = ""
-            if(a[j] == "e") a[j] = ""
-            if(a[j] == "o") a[j] = ""
-            if(a[j] == "y") a[j] = ""
-            if(a[j] == "u") a[j] = ""
-            document.getElementById("sport").innerHTML += a[j];
-        }
-        
-        //ths s sprt
+                for(let i = 0 ; i<firstDay; i++){
+                    const emptySlot = document.createElement("div");
+                    emptySlot.style.height = "20px";
+                    dayContainer.appendChild(emptySlot);
+                }
+
+                for(let day = 1; day <=days; day++){
+                    const dayElement  = document.createElement("div");
+                    dayElement.textContent = day;
+                    dayElement.style.padding = "5px";
+                    dayElement.style.fontSize = "12px";
+                    dayElement.style.textAlign = "center";
+                    dayElement.style.border = "1px solid #ccc"
+                    dayElement.style.backgroundColor = "white"
+                    const currentDayOfWeek = (firstDay + day -1) % 7;
+                    if (currentDayOfWeek === 5 || currentDayOfWeek === 6){
+                        dayElement.style.color = "red";
+                    }
+
+                    dayContainer.appendChild(dayElement)
+                }
+                monthContainer.appendChild(dayContainer);
+                calendarContainer.appendChild(monthContainer)
+            })
+
+        })
+
+
     </script>
 
 </body>
