@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            //ნაკიანი წელიწადის გამოთვლა (True ან false)
+            function isLeapYear(year) {
+                return (year % 4 === 0 && year % 100 === 0) || (year % 400 === 0)
+            }
+
+            //ავღნიშნოთ მიმდინარე წელი
+            const year = new Date().getFullYear();
+            //თვეების სახელები
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            //თვეების რიცხვები
+            const monthDays = [
+                31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+            ];
+            //თუ წელიწადი ნაკიანია
+            if (isLeapYear(year)) {
+                monthDays[1] = 29
+            }
+
+            //სკრიპტი წარმოქმნის HTML ელემენტს
+            const calendarContainer = document.createElement("div");
+
+            calendarContainer.style.display = "flex";
+            calendarContainer.style.flexWrap = "wrap";
+            calendarContainer.style.gap = "10px"
+            calendarContainer.style.justifyContent = "center";
+
+            //სკრიპტმა body თეგს მიამაგრა calendarContainer
+            document.body.appendChild(calendarContainer);
+            //თვეების შექმნა
+            months.forEach((month, index) => {
+                const days = monthDays[index];
+                const monthContainer = document.createElement("div");
+                monthContainer.style.width = "180px";
+                monthContainer.style.border = "1px solid black";
+                monthContainer.style.padding = "10px"
+                monthContainer.style.textAlign = "center";
+                monthContainer.style.backgroundColor = "#f9f9f9";
+
+                const monthName = document.createElement("h3");
+                monthName.style.margin = "0 0 10px 0";
+                monthName.style.fontSize = "16px";
+                monthName.textContent = month;
+
+                monthContainer.appendChild(monthName);
+
+                const dayContainer = document.createElement("div");
+                dayContainer.style.display = "grid";
+                dayContainer.style.gridTemplateColumns = "repeat(7,1fr)";
+                dayContainer.style.gap = "2px";
+
+                const dayHeader = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+                dayHeader.forEach(day => {
+                    const daysInWeek = document.createElement("div");
+                    daysInWeek.textContent = day;
+
+                    daysInWeek.style.fontWeight = "bold";
+                    daysInWeek.style.fontSize = "12px";
+                    daysInWeek.style.textAlign = "center";
+                    daysInWeek.style.borderBottom = "1px solid #ccc";
+                    if (day === "Sat" || day === "Sun") {
+                        daysInWeek.style.color = "red"
+                    }
+                    dayContainer.appendChild(daysInWeek);
+                });
+
+                let firstDay = new Date(year, index, 1).getDay();
+                
+                if(firstDay === 0){
+                    firstDay = 6;
+                }else{
+                    firstDay = firstDay - 1
+                }
+
+                for(let i = 0 ; i<firstDay; i++){
+                    const emptySlot = document.createElement("div");
+                    emptySlot.style.height = "20px";
+                    dayContainer.appendChild(emptySlot);
+                }
+
+                for(let day = 1; day <=days; day++){
+                    const dayElement  = document.createElement("div");
+                    dayElement.textContent = day;
+                    dayElement.style.padding = "5px";
+                    dayElement.style.fontSize = "12px";
+                    dayElement.style.textAlign = "center";
+                    dayElement.style.border = "1px solid #ccc"
+                    dayElement.style.backgroundColor = "white"
+                    const currentDayOfWeek = (firstDay + day -1) % 7;
+                    if (currentDayOfWeek === 5 || currentDayOfWeek === 6){
+                        dayElement.style.color = "red";
+                    }
+
+                    dayContainer.appendChild(dayElement)
+                }
+                monthContainer.appendChild(dayContainer);
+                calendarContainer.appendChild(monthContainer)
+            })
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>
