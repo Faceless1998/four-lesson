@@ -28,10 +28,15 @@
             const monthDays = [
                 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
             ];
+            
+            monthDays[1] = isLeapYear(year) ? 29 : 28
+            
             //თუ წელიწადი ნაკიანია
-            if (isLeapYear(year)) {
-                monthDays[1] = 29
-            }
+            // if (isLeapYear(year)) {
+            //     monthDays[1] = 29
+            // }
+
+            
 
             //სკრიპტი წარმოქმნის HTML ელემენტს
             const calendarContainer = document.createElement("div");
@@ -82,11 +87,13 @@
 
                 let firstDay = new Date(year, index, 1).getDay();
                 
-                if(firstDay === 0){
-                    firstDay = 6;
-                }else{
-                    firstDay = firstDay - 1
-                }
+                firstDay = firstDay === 0 ? 6 : firstDay - 1;
+
+                // if(firstDay === 0){
+                //     firstDay = 6;
+                // }else{
+                //     firstDay = firstDay - 1
+                // }
 
                 for(let i = 0 ; i<firstDay; i++){
                     const emptySlot = document.createElement("div");
