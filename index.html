@@ -5,25 +5,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="clock">
-        <div class="hand hour-hand"></div>
-        <div class="hand minute-hand"></div>
-        <div class="hand second-hand"></div>
-        <div class="center-dot"></div>
-        <div class="center-dot-orange"></div>
-        <div class="hour-markers"></div>
-        <div class="minute-markers"></div>
-    </div>
 
 
-    <script src="script.js"></script>
+    <div id="demo"></div>
+
+    <script>
+        // const letters = new Set(["a", "b", "c", "a","b","d"]);
+        // const letters = new Set();
+        // letters.add("a");
+        // letters.add("b");
+        // letters.add("c");
+        // letters.add("a");
+
+        // //listing
+        // var text = ""
+        // for(const x of letters){
+        //     text+=x+", ";
+        // }
+
+        // document.getElementById("demo").innerHTML = letters instanceof Set;
+
+        // const letters = ["a", "b", "c"];
+
+        // letters.length;
+        // letters.toString();
+        // letters.at()
+        // letters.join()
+        // letters.pop()
+        // letters.push("d");
+        // letters.shift()
+        // letters.unshift("a")
+
+        // const letters = new Set(["a", "b", "c", "a","b","d"]);
+
+        // letters.add("e");
+        // letters.has("d");
+        // //entries
+
+        // const myIterator = letters.entries();
+
+        // let text = "";
+
+        // for(const entry of myIterator){
+        //     text += entry;
+        // }
+
+        const list = new Map()
+        var text = new String("5")
+        var txt = "5"
+        list.set("apple", 5)
+        list.has("apple")
+        document.getElementById("demo").innerHTML = text instanceof String;
+
+        const person ={
+            firstname: "John",
+            lastname: "Doe",
+            age: 25
+        }
+
+        //destructing
+        var {firstname : name} = person;
+        var {lastname : surname} = person;
+        var {age : asaki} = person;
+
+        const fruits = ["fortoxal", "mandarin", "adesa", "enesi"]
+
+        // let [fruit1,,fruit2,fruit5] = fruits;
+
+        const {[0]:fruit1, [3]:fruit2 } = fruits
+
+        const numbers = [10,20,30,40,50,60,70,80,90];
+
+        const [...rest] = numbers;
+
+        document.getElementById("demo").innerHTML = rest;
+    </script>
 </body>
 
 </html>
