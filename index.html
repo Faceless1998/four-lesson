@@ -5,84 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            display: block;
+            width: 200px;
+            height: 200px;
+            object-fit: fill;
+            object-position: center center;
+        }
+    </style>
 </head>
 
 <body>
 
-
     <div id="demo"></div>
 
     <script>
-        // const letters = new Set(["a", "b", "c", "a","b","d"]);
-        // const letters = new Set();
-        // letters.add("a");
-        // letters.add("b");
-        // letters.add("c");
-        // letters.add("a");
+        const APIURL = "https://v3.football.api-sports.io/teams"
+        const APIKEY = "2ce8fff10286d94077dd83a1fa68e9f8"
+        const LEAGUEID = 327;
+        const SEASON = 2023;
 
-        // //listing
-        // var text = ""
-        // for(const x of letters){
-        //     text+=x+", ";
-        // }
+        fetch(`${APIURL}?league=${LEAGUEID}&season=${SEASON}`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "v3.football.api-sports.io",
+                "x-rapidapi-key": APIKEY
+            }
+        })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => {
+                console.log(err);
+            });
 
-        // document.getElementById("demo").innerHTML = letters instanceof Set;
 
-        // const letters = ["a", "b", "c"];
-
-        // letters.length;
-        // letters.toString();
-        // letters.at()
-        // letters.join()
-        // letters.pop()
-        // letters.push("d");
-        // letters.shift()
-        // letters.unshift("a")
-
-        // const letters = new Set(["a", "b", "c", "a","b","d"]);
-
-        // letters.add("e");
-        // letters.has("d");
-        // //entries
-
-        // const myIterator = letters.entries();
-
-        // let text = "";
-
-        // for(const entry of myIterator){
-        //     text += entry;
-        // }
-
-        const list = new Map()
-        var text = new String("5")
-        var txt = "5"
-        list.set("apple", 5)
-        list.has("apple")
-        document.getElementById("demo").innerHTML = text instanceof String;
-
-        const person ={
-            firstname: "John",
-            lastname: "Doe",
-            age: 25
-        }
-
-        //destructing
-        var {firstname : name} = person;
-        var {lastname : surname} = person;
-        var {age : asaki} = person;
-
-        const fruits = ["fortoxal", "mandarin", "adesa", "enesi"]
-
-        // let [fruit1,,fruit2,fruit5] = fruits;
-
-        const {[0]:fruit1, [3]:fruit2 } = fruits
-
-        const numbers = [10,20,30,40,50,60,70,80,90];
-
-        const [...rest] = numbers;
-
-        document.getElementById("demo").innerHTML = rest;
     </script>
+
 </body>
 
 </html>
