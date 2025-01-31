@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div>
+
+        <h1>Task List</h1>
+
+        <div>
+            <input type="text" id="taskInput">
+            <button id="addTaskButton">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+
+    <script>
+        const taskList = document.getElementById("taskList");
+        const taskInput = document.getElementById("taskInput");
+        const addTaskButton = document.getElementById("addTaskButton");
+
+        function addTask() {
+            const taskText = taskInput.value.trim();
+            if (taskText !== "") {
+                const li = createTaskElement(taskText);
+                taskList.appendChild(li);
+
+                const task = JSON.parse(localStorage.getItem('task')) || [];
+                task.push(taskText);
+                localStorage.setItem('task', JSON.stringify(task));
+
+                taskInput.value = "";
+                taskInput.focus();
+            }
+        }
+
+        function createTaskElement(taskText) {
+            const li = document.createElement("li");
+            li.textContent = taskText;
+
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Delete";
+            removeBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                removeTask(li);
+            })
+
+            const doneBtn = document.createElement("button");
+            doneBtn.textContent = "Done";
+            doneBtn.addEventListener("click", (e) => {
+                li.classList.add("line-through")
+            })
+            li.appendChild(doneBtn);
+            li.appendChild(removeBtn);
+
+            return li;
+        }
+
+
+        function removeTask(li) {
+            const taskText = li.textContent.replace("Delete", "").trim();
+            li.remove();
+
+            const task = JSON.parse(localStorage.getItem('task')) || [];
+            const updateTask = task.filter(tasks => tasks !== taskText);
+            localStorage.setItem('task', JSON.stringify(updateTask));
+        }
+
+        function loadTasks() {
+            const task = JSON.parse(localStorage.getItem('task')) || [];
+            task.forEach(tasks => {
+                const li = createTaskElement(tasks);
+                taskList.appendChild(li);
+            });
+        }
+
+        addTaskButton.addEventListener("click", addTask);
+        taskInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                addTask();
+            }
+        })
+
+        loadTasks()
+
+    </script>
+
+
+
+</body>
+
+</html>
