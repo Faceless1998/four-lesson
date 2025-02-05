@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td,
+        tr {
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .whites {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(64, 255, 0);
+        }
+
+        .blacks {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(0, 0, 0);
+        }
+        .red{
+            color: red;
+        }
+        .purple{
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        // var a = 0;
+        // var b = 6;
+        // //true or false
+        // if (a > b) {
+        //     console.log("This is sparta")
+        // }
+
+        // for (var i = 0; i < 10; i += 2) {
+
+        // }
+
+        // do {
+        //     console.log("This is sparta")
+        //     a++;
+        // } while (a < 10);
+
+
+        // if (a > b) {
+        //     console.log("This is sparta")
+        // }
+
+        // if (a > b) {
+        //     console.log("This is sparta")
+        // } else if (a == b) {
+        //     console.log("This is not sparta")
+        // }
+
+
+        //[]
+        //{}
+
+        /*
+        function saxeli(){
+        
+        }
+
+        */
+
+        /*
+
+        event 
+
+        createElement("")
+
+        getElementById("")
+
+        appendChild
+
+        */
+
+        const table = document.createElement("table")
+
+
+        for (var i = 0; i < 8; i++) {
+            const tr = document.createElement("tr")
+            for (var j = 0; j < 8; j++) {
+                const td = document.createElement("td")
+                if (i == 1) {
+                    td.textContent = "♟"
+                    td.classList.add("red");
+                }else if(i == 6){
+                    td.textContent = "♟"
+                    td.classList.add("purple");
+                }
+                if (i % 2 == 0 && j % 2 == 0)
+                    td.classList.add("whites");
+                else if (i % 2 == 1 && j % 2 == 1)
+                    td.classList.add("whites");
+                else
+                    td.classList.add("blacks");
+
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        document.body.appendChild(table);
+    </script>
+</body>
+
+</html>

@@ -4,32 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="8 Queen Problem">
+    <meta name="keywords" content="chess, HTML, Javascript, Tailwind, Css, 8 Queen, ჭადრაკი, Wadraki, chadraki">
+    <meta name="description" content="ეს პროგრამა ეძღვნება ჭადრაკის ერთ-ერთ ამოცანას">
     <title>Document</title>
     <style>
         table,
         td,
         tr {
-            border-collapse: collapse;
+            border: 1px solid black;
+            color: white;
             text-align: center;
             font-size: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
         }
 
         .whites {
             width: 50px;
             height: 50px;
-            background-color: rgb(64, 255, 0);
+            background-color: green;
         }
 
         .blacks {
             width: 50px;
             height: 50px;
-            background-color: rgb(0, 0, 0);
-        }
-        .red{
-            color: red;
-        }
-        .purple{
-            color: purple;
+            background-color: black;
         }
     </style>
 </head>
@@ -38,84 +40,71 @@
 
 
     <script>
-        // var a = 0;
-        // var b = 6;
-        // //true or false
-        // if (a > b) {
-        //     console.log("This is sparta")
-        // }
+        var N = 8;
 
-        // for (var i = 0; i < 10; i += 2) {
+        function printSolution(chess) {
 
-        // }
+            var table = document.createElement("table");
 
-        // do {
-        //     console.log("This is sparta")
-        //     a++;
-        // } while (a < 10);
+            for (var i = 0; i < N; i++) {
+                var tr = document.createElement("tr");
+                for (var j = 0; j < N; j++) {
+                    var td = document.createElement("td");
 
+                    if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
+                        td.classList.add("whites");
+                    } else {
+                        td.classList.add("blacks");
+                    }
 
-        // if (a > b) {
-        //     console.log("This is sparta")
-        // }
+                    if (chess[i][j] === 1) {
+                        td.innerHTML = "&#9819;"
+                    }
 
-        // if (a > b) {
-        //     console.log("This is sparta")
-        // } else if (a == b) {
-        //     console.log("This is not sparta")
-        // }
-
-
-        //[]
-        //{}
-
-        /*
-        function saxeli(){
-        
-        }
-
-        */
-
-        /*
-
-        event 
-
-        createElement("")
-
-        getElementById("")
-
-        appendChild
-
-        */
-
-        const table = document.createElement("table")
-
-
-        for (var i = 0; i < 8; i++) {
-            const tr = document.createElement("tr")
-            for (var j = 0; j < 8; j++) {
-                const td = document.createElement("td")
-                if (i == 1) {
-                    td.textContent = "♟"
-                    td.classList.add("red");
-                }else if(i == 6){
-                    td.textContent = "♟"
-                    td.classList.add("purple");
+                    tr.appendChild(td);
                 }
-                if (i % 2 == 0 && j % 2 == 0)
-                    td.classList.add("whites");
-                else if (i % 2 == 1 && j % 2 == 1)
-                    td.classList.add("whites");
-                else
-                    td.classList.add("blacks");
-
-                tr.appendChild(td);
+                table.appendChild(tr)
             }
-            table.appendChild(tr);
+
+            document.body.appendChild(table)
         }
 
-        document.body.appendChild(table);
+        function solveNQueen(chess, col) {
+            if (col >= n) {
+                printSolution(chess);
+                return true;
+            }
+
+            var res = false;
+
+            for (var i = 0; i < N; i++) {
+                if( isSafe()){
+                    chess[i][col] = 1;
+                    res = solveNQueen(chess, col + 1);
+                    chess[i][col] = 0;
+                }
+            }
+
+
+            return false;
+        }
+
+        function isSafe(){
+            for(var i = 0;i<col;i++){
+                if(chess[row][i] === 1) return false;
+            }
+            for(var i = row;i>=0;i--){
+                
+
+            }
+
+        }
+
+
+        printSolution(board);
+
     </script>
+
 </body>
 
 </html>
