@@ -38,6 +38,7 @@
 
 <body>
 
+    <button onclick="solve()"> Solve </button>
 
     <script>
         var N = 8;
@@ -47,7 +48,7 @@
 
             var solutionDiv = document.createElement("div");
             solutionDiv.innerHTML = "";
-            
+
             var table = document.createElement("table");
 
             for (var i = 0; i < N; i++) {
@@ -75,6 +76,7 @@
             solutionHeader.innerHTML = ` Solution No${solutionCount} `
             solutionDiv.appendChild(solutionHeader);
             solutionDiv.appendChild(table);
+            document.body.appendChild(solutionDiv);
         }
 
         function solveNQueen(chess, col) {
@@ -86,9 +88,9 @@
             var res = false;
 
             for (var i = 0; i < N; i++) {
-                if (isSafe(chess, i , col)) {
+                if (isSafe(chess, i, col)) {
                     chess[i][col] = 1;
-                    res = solveNQueen(chess, col + 1) || res;
+                    res = solveNQueen(chess, col + 1);
                     chess[i][col] = 0;
                 }
             }
@@ -101,35 +103,30 @@
             for (var i = 0; i < col; i++) {
                 if (board[row][i] === 1) return false;
             }
-            for (var i = row; i >= 0; i--) {
-                for (var j = col; j >= 0; j--) {
+            for (var i = row, j = col; i >= 0 && j >=0; i--, j--) {
                     if (board[i][j] === 1) return false;
-                }
             }
-            for(var i = row ; i < N ; i++){
-                for( var j = col; j >= 0 ; j--){
+
+            for (var i = row, j = col; i < N && j>=0; i++, j--) {
                     if (board[i][j] === 1) return false;
-                }
             }
 
             return true;
 
         }
 
-        function solve(){
-            var board = new Array(N).fill(0).map( () => new Array(N).fill(0) );
+        function solve() {
+            var board = new Array(N).fill(0).map(
+                () => new Array(N).fill(0)
+            );
             solutionCount = 0;
-            console.log(board)
 
-            if(!solveNQueen(board, 0)){
-                alert("Solution does not exist");
+            if (!solveNQueen(board, 0)) {
                 return false;
             }
 
             return true;
         }
-
-        solve()
 
     </script>
 
