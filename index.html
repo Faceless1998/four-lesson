@@ -41,9 +41,13 @@
 
     <script>
         var N = 8;
+        var solutionCount = 0;
 
         function printSolution(chess) {
 
+            var solutionDiv = document.createElement("div");
+            solutionDiv.innerHTML = "";
+            
             var table = document.createElement("table");
 
             for (var i = 0; i < N; i++) {
@@ -66,11 +70,15 @@
                 table.appendChild(tr)
             }
 
-            document.body.appendChild(table)
+            solutionCount++;
+            var solutionHeader = document.createElement("h1");
+            solutionHeader.innerHTML = ` Solution No${solutionCount} `
+            solutionDiv.appendChild(solutionHeader);
+            solutionDiv.appendChild(table);
         }
 
         function solveNQueen(chess, col) {
-            if (col >= n) {
+            if (col >= N) {
                 printSolution(chess);
                 return true;
             }
@@ -78,7 +86,7 @@
             var res = false;
 
             for (var i = 0; i < N; i++) {
-                if (isSafe()) {
+                if (isSafe(chess, i , col)) {
                     chess[i][col] = 1;
                     res = solveNQueen(chess, col + 1) || res;
                     chess[i][col] = 0;
@@ -89,18 +97,18 @@
             return false;
         }
 
-        function isSafe() {
+        function isSafe(board, row, col) {
             for (var i = 0; i < col; i++) {
-                if (chess[row][i] === 1) return false;
+                if (board[row][i] === 1) return false;
             }
             for (var i = row; i >= 0; i--) {
                 for (var j = col; j >= 0; j--) {
-                    if (chess[i][j] === 1) return false;
+                    if (board[i][j] === 1) return false;
                 }
             }
             for(var i = row ; i < N ; i++){
                 for( var j = col; j >= 0 ; j--){
-                    if (chess[i][j] === 1) return false;
+                    if (board[i][j] === 1) return false;
                 }
             }
 
@@ -108,8 +116,20 @@
 
         }
 
+        function solve(){
+            var board = new Array(N).fill(0).map( () => new Array(N).fill(0) );
+            solutionCount = 0;
+            console.log(board)
 
-        printSolution(board);
+            if(!solveNQueen(board, 0)){
+                alert("Solution does not exist");
+                return false;
+            }
+
+            return true;
+        }
+
+        solve()
 
     </script>
 
