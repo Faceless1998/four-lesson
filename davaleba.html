@@ -6,14 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .box {
+        width: 200px;
+        height: 300px;
+        border-radius: 24px;
+        background-color: red;
+        margin-left: 100px;
+        margin-top: 100px;
+    }
+
+    .boxOp {
+        opacity: 0.5;
+    }
+
+    .bodycolor {
+        background-color: black;
+    }
+</style>
 
 <body>
-
+    <!--
     <input type="text">
     <input type="text">
     <input type="text">
 
     <button onclick="problem()">OK</button>
+
+
+     <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11928.996162974245!2d41.61572676032714!3d41.62874809254802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40678591656d5d59%3A0xad5230b74830ca23!2z4YOS4YOg4YOQ4YOc4YOTIOGDm-GDneGDmuGDmA!5e0!3m2!1ska!2sge!4v1739362263170!5m2!1ska!2sge"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/m1agNfM-mCo?si=o2Qs8uszZD1JMWAL"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+
+    <div class="box" id="box">
+
+    </div>
 
     <script>
         function drinkAllowed() {
@@ -43,25 +76,101 @@
             console.log(km)
         }
 
-        function factorial(a){
-            if(a === 1){
+        function factorial(a) {
+            if (a === 1) {
                 return 1;
             }
-            
-            return a * factorial(a-1); 
+
+            return a * factorial(a - 1);
         }
 
-        /*perfect number -> ვნახოთ ყველა გამყოფი (გარდა საკუთარი თავისა) და შემდეგ დავაჯამოთ, მოცემული ჯამი უნდა იყოს რიცხვის ტოლი */
-        
-        /*prime number -> ვნახოთ მარტივი რიცხვი 2დან მოცემული რიცხვის ნახევრამდე (for) - თუ ერთხელ მაინც გაიყო მაშინ არაა მარტივი */
-        
-        /*ფაქტორიალი -> რიცხვის ფაქტორიალი რეკურსიით */
+        function prime() {
+            var num = 28;
+            // var num = 7;
 
-        /* გააკეთე დივი რომელსაც დაჭერის დროს ფერი ეკარგება 0.5 წამით */
+
+            for (var i = 2; i < parseInt(num / 2); i++) {
+                if (num % i == 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        function perfect() {
+            var num = 28;
+            // var num = 7;
+            var counter = 0;
+            var swiper = 0;
+            for (var i = 1; i < parseInt(num / 2); i++) {
+                if (num % i == 0) {
+                    counter++;
+                    swiper = swiper + i;
+                }
+            }
+
+            if (num === swiper) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function factorial(n) {
+            if (n == 1) {
+                return 1;
+            }
+
+            return n * factorial(n - 1);
+        }
+
+        /*
+        5 * factorial(4) false
+        4 * factoria(3) false
+        3 * factorial(2) false
+        2 * factorial(1) false
+        factorial(1) 1
+        2 * 1 = 2
+        3 * 2 = 6
+        4 * 6 = 24
+        5 * 24 120
+        */
+
+        var mydiv = document.getElementById("box");
+
+        mydiv.addEventListener("click", () => {
+
+            mydiv.classList.toggle("boxOp");
+
+        })
+
+        document.body.addEventListener("click", () => {
+            document.body.classList.toggle("bodycolor")
+        })
+
+
+
+        /*
+        https://edabit.com/challenge/3EQGHyiYTNc9LPmhF
+
+        დავყოთ მალივად split("") -> if() ფუნქციით ვნახოთ არის თუ არა თითო-თითოდ ელემენტი არის თუ არა ხმოვანი
         
-        /* Google რუკის ჩაშენება საიტზე embeded */
-       
-        /* იუთუბის ლინკის ჩაშენება embeded */
+        https://edabit.com/challenge/n7qZMpuLsAMGBGNLA
+
+        split(":") -> length -> if( 2 ) საათი და წუთი else საათი წუთი წამი
+        რამდენი წამია ამდენ დროში
+        01,40,15
+        01 * 3600+40 * 60+15*1 
+
+        01:40:15
+        36:58
+        36 * 60 + 58 * 1  
+
+        15:61 -> ჰეჰე რას წერ
+        
+        
+        */
 
     </script>
 </body>
