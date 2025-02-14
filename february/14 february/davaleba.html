@@ -149,12 +149,69 @@
             document.body.classList.toggle("bodycolor")
         })
 
+        function Vowels() {
+            var text = "This is sparta";
+
+            var textArr = text.split("");
+
+            // console.log(textArr)
+
+            // for (var x of textArr) {
+            //     console.log(x)
+            // }
+
+            // for (var x in textArr) {
+            //     console.log(textArr[x])
+            // }
+
+            // for (var i = 0; i < textArr.length; i++) {
+            //     console.log(textArr[i]);
+            // }
+
+            // textArr.forEach((strings, index) => {
+            //     console.log(strings, " -> ", index);
+            // })
+            // textArr.map((strings, index) => {
+            //     console.log(strings, " -> ", index);
+            // })
+            var count = 0;
+
+            var letters = ["a","e","i","o","u","A","E","I","O","U"];
+
+            textArr.map((strings, index) => {
+
+                for( var x of letters){
+                    if( x === strings){
+                        count++;
+                        break;
+                    }
+                }
+
+                // if(strings === "a" || strings === "A"){
+                //     count++;
+                // }else if(strings === "e" || strings === "E"){
+                //     count++;
+                // }else if(strings === "i" || strings === "I"){
+                //     count++;
+                // }else if(strings === "o" || strings === "O"){
+                //     count++;
+                // }else if(strings === "u" || strings === "U"){
+                //     count++;
+                // }  
+            })
+            console.log(count);
+
+
+
+
+        }
+        Vowels();
 
 
         /*
         https://edabit.com/challenge/3EQGHyiYTNc9LPmhF
 
-        დავყოთ მალივად split("") -> if() ფუნქციით ვნახოთ არის თუ არა თითო-თითოდ ელემენტი არის თუ არა ხმოვანი
+        დავყოთ მასივად split("") -> if() ფუნქციით ვნახოთ არის თუ არა თითო-თითოდ ელემენტი არის თუ არა ხმოვანი
         
         https://edabit.com/challenge/n7qZMpuLsAMGBGNLA
 

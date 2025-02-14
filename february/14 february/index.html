@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="8 Queen Problem">
+    <meta name="keywords" content="chess, HTML, Javascript, Tailwind, Css, 8 Queen, ჭადრაკი, Wadraki, chadraki">
+    <meta name="description" content="ეს პროგრამა ეძღვნება ჭადრაკის ერთ-ერთ ამოცანას">
+    <title>Document</title>
+    <style>
+        table,
+        td,
+        tr {
+            border: 1px solid black;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .whites {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+        }
+
+        .blacks {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="solve()"> Solve </button>
+
+    <script>
+        var N = 8;
+        var solutionCount = 0;
+
+        function printSolution(chess) {
+
+            var solutionDiv = document.createElement("div");
+            solutionDiv.innerHTML = "";
+
+            var table = document.createElement("table");
+
+            for (var i = 0; i < N; i++) {
+                var tr = document.createElement("tr");
+                for (var j = 0; j < N; j++) {
+                    var td = document.createElement("td");
+
+                    if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
+                        td.classList.add("whites");
+                    } else {
+                        td.classList.add("blacks");
+                    }
+
+                    if (chess[i][j] === 1) {
+                        td.innerHTML = "&#9819;"
+                    }
+
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr)
+            }
+
+            solutionCount++;
+            var solutionHeader = document.createElement("h1");
+            solutionHeader.innerHTML = ` Solution No${solutionCount} `
+            solutionDiv.appendChild(solutionHeader);
+            solutionDiv.appendChild(table);
+            document.body.appendChild(solutionDiv);
+        }
+
+        function solveNQueen(chess, col) {
+            if (col >= N) {
+                printSolution(chess);
+                return true;
+            }
+
+            var res = false;
+
+            for (var i = 0; i < N; i++) {
+                if (isSafe(chess, i, col)) {
+                    chess[i][col] = 1;
+                    res = solveNQueen(chess, col + 1);
+                    chess[i][col] = 0;
+                }
+            }
+
+
+            return false;
+        }
+
+        function isSafe(board, row, col) {
+            for (var i = 0; i < col; i++) {
+                if (board[row][i] === 1) return false;
+            }
+            for (var i = row, j = col; i >= 0 && j >=0; i--, j--) {
+                    if (board[i][j] === 1) return false;
+            }
+
+            for (var i = row, j = col; i < N && j>=0; i++, j--) {
+                    if (board[i][j] === 1) return false;
+            }
+
+            return true;
+
+        }
+
+        function solve() {
+            var board = new Array(N).fill(0).map(
+                () => new Array(N).fill(0)
+            );
+            solutionCount = 0;
+
+            if (!solveNQueen(board, 0)) {
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
+
+</body>
+
+</html>`
