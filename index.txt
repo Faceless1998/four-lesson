@@ -1,0 +1,29 @@
+npx -> ბრძანება რომელიც წინ ერთვის რაღაცის წარმოქმნას
+npm -> ბრძანება რომელიც აინსტალირებს რაიმეს
+run build -> პროექტის build-ის შექმნა
+start -> ანალოგია live server-ის 
+yarn -> npm ის ალტერნატიული ბრძანება (mac-ში და linux-ში)
+run dev -> სიტყვასიტყვით ნიშნავს დეველოპერულ ვერსიაზე გაშვებას
+
+
+npx create-react-app (saxeli)
+მაგალითი:
+npx create-react-app test
+შეიქმნება რეაქტის პროექტი test ფაილში
+
+npx create-react-app . 
+შეიქმნება რეაქტის პროექტი იმ ფაილში სადაც ვიმყოფებით
+
+npm start / yarn start
+დასტარტვა რეაქტის ელემენტის, იწყება იმით რაც rootშია მითითებული
+
+npm i   /   npm install / yarn add
+ბიბლიოთეკების დაყენება (უკვე არსებული) node-modules
+npm i (სახელი) / npm install (სახელი)
+კონკრეტული ბიბლიოთეკის დაყენება node-modules
+
+npm run build პროექტის გაბილდვა
+
+npm run dev დეველოპერულ ვერსიაში გაშვება
+
+--force და --legacy-peer-deps
