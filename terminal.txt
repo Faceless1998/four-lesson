@@ -1,0 +1,7 @@
+ctrl + shift + ` ტერმინალის გამოძახება
+clear ტერმინალის ბრძანებების მიმდინარე 
+
+npx create-react-app <name> 
+
+import შემოტანა
+export გატანა
