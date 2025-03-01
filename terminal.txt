@@ -5,3 +5,14 @@ npx create-react-app <name>
 
 import შემოტანა
 export გატანა
+
+
+
+
+
+
+0.0.1
+
+
+
+
