@@ -15,4 +15,24 @@ export გატანა
 
 
 
+snake_case
 
+
+
+
+npx create-react-app first_project
+
+1. a ლინკი არის გამოუსადეგარი რეაქტში, react router dom
+
+browserRouter - index.js
+Routes - app.js - <Switch>
+Route - app.js - a თეგის რეალური ჩამნაცვლებელი
+<Link /> თეგი რომელიც ფიქტიურად ანაცვლებს a-ს
+
+2. ენების განსაზღვრა 
+3. რეგისტრაციის გვერდი
+4. hooks
+5. useEffect 
+6. useAuth
+7. mongoDB - ბაზების სისტემა
+8. server-side 
