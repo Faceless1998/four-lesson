@@ -1,7 +1,7 @@
 import React from "react";
 import Counter from "./Counter";
 import Todo from "./Todo";
-
+import DigitalClock from "./DigitalClock";
 //props(properties) and states
 
 //props - კავშირს ორ JSX ფაილს შორის
@@ -13,6 +13,8 @@ import Todo from "./Todo";
      return (
      <>
         <Todo />
+
+        <DigitalClock />
 
         <Counter initialCount={2} />
      </>
