@@ -1,14 +1,11 @@
 import React from "react";
-import Ceo from "./Ceo"
-import Switcher from "./Switcher"
+import Ceo from "./../../components/Ceo"
+import Switcher from "./../../components/Switcher"
 
  export const About = () => {
      return(
          <>
-            <Switcher />
-
-             About
-             <Ceo />
+            
          </>
      )
  }
