@@ -19,7 +19,7 @@ const Post = () => {
       image,
     };
 
-    setPosts([...Post, newPost]);
+    setPosts([...posts, newPost]);
   };
 
   const editPost = (id, uploadedTitle, uploadedContent, uploadedImage) => {
@@ -65,29 +65,84 @@ const Post = () => {
     }
   };
 
+  const handleImageChanger = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleNewImageChanger = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setNewImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <>
-      <div>
-        <form onSubmit={ handleSubmitCreate }>
-          <input type="text" placeholder="Title" value={title} onChange={ (e) => setTitle(e.target.value) }/>
+      <div className="container">
+        <h1 className="main-header">My Blog</h1>
+        <div className="form-section">
+          <h2>Create New Blog</h2>
+          <form onSubmit={handleSubmitCreate} className="form">
+            <input
+              type="text"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="input-field"
+            />
 
-          <textarea placeholder="Content" value={content} onChange={ (e) => setContent(e.target.value) }></textarea>
+            <textarea
+              placeholder="Content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              className="input-field"
+            ></textarea>
 
-          <input type="file" />
+            <input
+              type="file"
+              className="input-field"
+              onChange={handleImageChanger}
+            />
 
-          <button type="submit">Create</button>
-        </form>
+            {image && <img src={image} alt="preview" />}
 
-        <div>
-            {
-                posts.map( (post) => (
-                    <>
-                        <div> { post.title } </div>
-                        <div> { post.content } </div>
-                    </>
-                ))
-            }
+            <button type="submit" className="submit-btn">
+              Create
+            </button>
+          </form>
         </div>
+
+        <div className="post-list">
+          <h2>Blog Posts</h2>
+          {posts.length === 0 ? (
+            <p className="no-post-message">No Post Available.</p>
+          ) : (
+            posts.map((post) => (
+              <div key={post.id}>
+                <h3>{post.title}</h3>
+
+                {post.image && <img src={post.image} alt={post.title} />}
+
+                <p>{post.content}</p>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
+      <div>
+        <div>{}</div>
       </div>
     </>
   );
