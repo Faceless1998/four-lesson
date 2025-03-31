@@ -123,6 +123,10 @@ const Post = () => {
           </form>
         </div>
 
+
+        
+
+
         <div className="post-list">
           <h2>Blog Posts</h2>
           {posts.length === 0 ? (

@@ -1,11 +1,10 @@
-import React from "react"
-import Post from "../../components/Post"
+import React from "react";
+import Pagination from "../../components/Pagination";
 
-
- export const Home = () => {
-     return(
-         <>
-            <Post />
-         </>
-     )
- }
+export const Home = () => {
+  return (
+    <>
+      <Pagination />
+    </>
+  );
+};
