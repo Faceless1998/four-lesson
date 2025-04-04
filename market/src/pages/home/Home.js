@@ -1,10 +1,10 @@
 import React from "react";
-import Pagination from "../../components/Pagination";
+import Slider from "../../components/Slider";
 
 export const Home = () => {
   return (
     <>
-      <Pagination />
+      <Slider />
     </>
   );
 };
