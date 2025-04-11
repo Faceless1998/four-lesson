@@ -1,44 +1,55 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
-import { ProductData } from "./../data/ProductData"
+import { ProductData } from "./../data/ProductData";
 
+export default function ProductFilter() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
 
-export default function ProductFilter(){
-    const [searchTerm, setSearchTerm] = useState("");
-    const [sortOrder, setSortOrder] = useState("");
+  const filteredData = ProductData.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  ).sort((a, b) => {
+    if (sortOrder === "lowToHigh") return a.price - b.price;
+    if (sortOrder === "highToLow") return b.price - a.price;
+    return 0;
+  });
 
-    const filteredData = ProductData.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    ).sort( (a,b) => {
-        if(sortOrder === "lowToHigh") return a.price - b.price;
-        if(sortOrder === "highToLow") return b.price - a.price;
-        return 0;
-    });
+  return (
+    <>
+      <div className="filter-container">
+        <h1 className="title">Products List</h1>
 
-    return(
-        <>
-            <div className="filter-container">
+        <div className="filters">
+          <input
+            type="text"
+            placeholder="Search By Name.."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
 
-                <h1 className="title">Products List</h1>
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="">Sort By Price</option>
+            <option value="lowToHigh">Low To High</option>
+            <option value="highToLow">High To Low</option>
+          </select>
+        </div>
 
-
-                <div className="filters">
-                    <input 
-                        type="text" 
-                        placeholder="Search By Name.."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="search-input"
-                     />
-
-                     <select value={sortOrder}>
-                        <option value="">Sort By Price</option>
-                        <option value="lowToHigh">Low To High</option>
-                        <option value="highToLow">High To Low</option>
-
-                     </select>
-                </div>
-            </div>
-        </>
-    )
+        <div className="product-grid">
+            {
+                filteredData.length === 0 ?
+                ( <p className="no-results">No Products Found</p> ):
+                ( 
+                    filteredData.map((product) => (
+                        <ProductCard product={product} key={product.id} />
+                    ))
+                 )
+            }
+        </div>
+      </div>
+    </>
+  );
 }
