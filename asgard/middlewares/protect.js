@@ -1,9 +1,19 @@
 const jwt = require("jsonwebtoken");
 
 const protect = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    if(!authHeader) return res.status(401).json({message: "Autorization Required"})
-}
+  const authHeader = req.headers.authorization;
+  if (!authHeader)
+    return res.status(401).json({ message: "Autorization Required" });
 
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_CODE);
+    req.user = decoded;
+    next();
+  } catch (err) {
+    res.status(401).json({ message: "invalid token", error: err.message });
+  }
+};
 
 module.exports = protect;

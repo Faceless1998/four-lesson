@@ -9,7 +9,6 @@ dotenv.config();
 
 connectDB();
 
-
 app.use("/api/movie", movieRoutes);
 
 const PORT = process.env.PORT;
