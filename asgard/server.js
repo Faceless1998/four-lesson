@@ -1,18 +1,27 @@
-const express = require('express');
-const dotenv = require('dotenv');
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const connectDB = require("./config/db");
-const movieRoutes = require("./routes/movieRoutes")
-
-const app = express()
+const movieRoutes = require("./routes/movieRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 dotenv.config();
 
-connectDB();
+const app = express();
 
-app.use("/api/movie", movieRoutes);
+app.use(express.json());
 
-const PORT = process.env.PORT;
+app.use("/api/users", userRoutes);
+app.use("/api/movies", movieRoutes);
 
-app.listen(PORT, () => {
-    console.log(`${PORT}`)
+
+mongoose.connect( process.env.MONGODB , {
+    useNewUrlParser: true,
+    useUnifiedTopology:true
+}).then(() => {
+    console.log("Connected To MongoDB");
+    app.listen(process.env.PORT, () => {
+        console.log(` Server is running on localhost:${process.env.PORT}`)
+    })
 })
+

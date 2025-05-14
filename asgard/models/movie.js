@@ -9,16 +9,16 @@ const movieSchema = mongoose.Schema({
   starring: [
     {
       actor: { type: String, required: true },
-      role: { type: String, required: true }
-    }
+      role: { type: String, required: true },
+    },
   ],
   ratings: [
     {
       source: { type: String, required: true },
       score: { type: Number, required: true },
-      date: { type: Date, required: true }
-    }
-  ]
+      date: { type: Date, required: true },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Movie", movieSchema);

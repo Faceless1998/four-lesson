@@ -1,6 +1,12 @@
 const express = require("express");
-const { getAllMovies, getMovieById, createMovie, updateMovie, deleteMovie } = require("../controllers/movieController");
-const protect = require("../middleware/protect");
+const {
+  getAllMovies,
+  getMovieById,
+  createMovie,
+  updateMovie,
+  deleteMovie,
+} = require("../controllers/movieController");
+const protect = require("./../middlewares/protect");
 
 const router = express.Router();
 
