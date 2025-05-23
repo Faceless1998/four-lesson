@@ -22,6 +22,8 @@ exports.registerUser = async (req, res) => {
       phone,
     });
 
+    console.log(hashedPassword);
+
     res.status(201).json({ message: "Registration successful", user });
   } catch (err) {
     res.status(500).json({ message: "Registration error", error: err.message });
