@@ -7,7 +7,7 @@ export default function Register() {
     surname: "",
     username: "",
     password: "",
-    mail: "",
+    email: "",
     year: "",
     phone: "",
   });
@@ -59,7 +59,7 @@ export default function Register() {
 
         <input
           type="email"
-          name="mail"
+          name="email" // <-- change here from "mail" to "email"
           placeholder="Enter Email"
           required
           onChange={handleChange}
