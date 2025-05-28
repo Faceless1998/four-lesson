@@ -22,16 +22,15 @@ exports.registerUser = async (req, res) => {
       phone,
     });
 
-    console.log(hashedPassword);
-
     res.status(201).json({ message: "Registration successful", user });
   } catch (err) {
     res.status(500).json({ message: "Registration error", error: err.message });
   }
 };
 
+
 exports.loginUser = async (req, res) => {
-   const { username, password } = req.body;
+  const { username, password } = req.body;
   console.log("Login attempt for username:", username); // <--- add this
 
   try {
@@ -52,3 +51,16 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ message: "Login error", error: err.message });
   }
 };
+
+exports.forgetPassword = async(req,res) => {
+  const {email} = req.body;
+
+  try{
+    const user = await User.findOne( {email} );
+    if(!user) return res.status(404).json({message: "user not found"});
+
+
+  }catch(err){
+    consolo.log("error")
+  }
+}

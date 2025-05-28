@@ -59,7 +59,7 @@ export default function Register() {
 
         <input
           type="email"
-          name="email" // <-- change here from "mail" to "email"
+          name="email"
           placeholder="Enter Email"
           required
           onChange={handleChange}
