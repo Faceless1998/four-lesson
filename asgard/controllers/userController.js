@@ -59,8 +59,35 @@ exports.forgetPassword = async(req,res) => {
     const user = await User.findOne( {email} );
     if(!user) return res.status(404).json({message: "user not found"});
 
+    const resetToken = crypto.randomBytes(32).toString("hex");
 
+    const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+
+    user.resetToken = resetToken;
+    user.resetTokenExpire = Date.now() + 1000 * 60 * 5;
+    await user.save();
+
+    const transporter = nodemailer.createTransport({
+      service: "yahoo",
+      auth:{
+        user: "kakhidze.k@yahoo.com",
+        pass: "argetyvitparols"
+      }
+    });
+    
+    transporter.verify(function (error, success){
+      if(err){
+        console.error("Nodemailer error");
+      }else{
+        console.log("success");
+      }
+    })
+
+    res.status(200).json({message: "OK, Really Good password"});
+    console.log(resetLink);
   }catch(err){
-    consolo.log("error")
+    console.log("error")
   }
 }
+
+
