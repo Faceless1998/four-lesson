@@ -28,7 +28,6 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-
 exports.loginUser = async (req, res) => {
   const { username, password } = req.body;
   console.log("Login attempt for username:", username); // <--- add this
@@ -52,12 +51,12 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-exports.forgetPassword = async(req,res) => {
-  const {email} = req.body;
+exports.forgetPassword = async (req, res) => {
+  const { email } = req.body;
 
-  try{
-    const user = await User.findOne( {email} );
-    if(!user) return res.status(404).json({message: "user not found"});
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ message: "user not found" });
 
     const resetToken = crypto.randomBytes(32).toString("hex");
 
@@ -69,25 +68,52 @@ exports.forgetPassword = async(req,res) => {
 
     const transporter = nodemailer.createTransport({
       service: "yahoo",
-      auth:{
+      auth: {
         user: "kakhidze.k@yahoo.com",
-        pass: "argetyvitparols"
-      }
+        pass: "argetyvitparols",
+      },
     });
-    
-    transporter.verify(function (error, success){
-      if(err){
+
+    transporter.verify(function (error, success) {
+      if (err) {
         console.error("Nodemailer error");
-      }else{
+      } else {
         console.log("success");
       }
-    })
+    });
 
-    res.status(200).json({message: "OK, Really Good password"});
+    res.status(200).json({ message: "OK, Really Good password" });
     console.log(resetLink);
-  }catch(err){
-    console.log("error")
+  } catch (err) {
+    console.log("error");
   }
-}
+};
+
+exports.resetPassword = async (req, res) => {
+  const { token } = req.params;
+  const { newPassword } = req.body;
+
+  try {
+    const user = await User.findOne({
+      resetToken: token,
+      resetTokenExpire: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: "Token Invalid or expired!" });
+    }
+
+    user.password = await bcrypt.hash(newPassword, 10);
+    user.resetToken = undefined;
+    user.resetTokenExpire = undefined;
+    await user.save();
+
+    res.status(200).json({message: "Password Reset Successfully!"});
 
 
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({message: "Error reseting password!"});
+
+  }
+};
