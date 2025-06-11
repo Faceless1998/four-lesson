@@ -21,11 +21,7 @@ const fileFilter = (req, file, cb) => {
 }
 
 const limits = {
-    fileSize: 25 * 1024 * 1024, //25MB 
+    fileSize: 25 * 1024 * 1024,
 }
-
-// 1 ბაიტი = 8 ბიტი
-// 1 KB 1024 ბაიტი
-// 2 4 8 16 32 64 128 256 512 1024
 
 module.exports = multer({storage, fileFilter, limits});
